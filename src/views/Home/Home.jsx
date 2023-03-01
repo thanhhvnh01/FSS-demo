@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 
-import { getData } from "../../data";
+import { getData } from "../../data_HOSE";
 import MainTable from "../../components/Table";
 import TableSettingModal from "./TableSettingModal";
+import { getData_HNX } from "../../data_HNX";
 
 const defaultColumns = [
   "symbol",
@@ -23,13 +24,20 @@ const Home = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [modalType, setModalTye] = useState("table-setting");
   // const [changeIndex, setChangeIndex] = useState([]);
-  const [columns, setColumns] = useState(defaultColumns);
+  const [columns_HOSE, setColumns_HOSE] = useState(defaultColumns);
+  const [columns_HNX, setColumns_HNX] = useState(defaultColumns);
+  const [selectedMarket, setSelectedMarket] = useState("hose");
 
   useEffect(() => {
-    const response = getData();
+    let response = [];
+    if (selectedMarket === "hose") {
+      response = getData();
+    } else {
+      response = getData_HNX();
+    }
     setInitData(response);
     setData(response);
-  }, []);
+  }, [selectedMarket]);
 
   //* get stock id array
   useEffect(() => {
@@ -88,15 +96,32 @@ const Home = () => {
     }
   }, [changedData]);
 
+  const columns = () => {
+    if (selectedMarket === "hose") {
+      return columns_HOSE;
+    } else {
+      return columns_HNX;
+    }
+  };
+
+  const setColumns = () => {
+    if (selectedMarket === "hose") {
+      return setColumns_HOSE;
+    } else {
+      return setColumns_HNX;
+    }
+  };
+
   return (
     <>
       <MainTable
         data={data}
         initData={initData}
-        columns={columns}
+        columns={columns()}
         action={() => {
           setModalOpen(true);
         }}
+        setSelectedMarket={setSelectedMarket}
       />
       {modalOpen && modalType === "table-setting" && (
         <TableSettingModal
@@ -104,8 +129,8 @@ const Home = () => {
           onClose={() => {
             setModalOpen(false);
           }}
-          columns={columns}
-          setColumns={setColumns}
+          columns={columns()}
+          setColumns={setColumns()}
         />
       )}
     </>

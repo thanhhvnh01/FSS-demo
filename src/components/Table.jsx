@@ -15,10 +15,10 @@ const table_Head1 = [
   { label: "totalVol", rowSpan: 2 },
 ];
 
-const MainTable = ({ data, initData, action, columns }) => {
+const MainTable = ({ data, initData, action, columns, setSelectedMarket }) => {
   return (
     <TableContainer>
-      <TableHeader action={action} />
+      <TableHeader action={action} setSelectedMarket={setSelectedMarket} />
       <Table
         variant="simple"
         size="sm"
