@@ -1,0 +1,11 @@
+{
+    "/* title */": "page title, form title, tab title",
+    "label.symbol": "Mã CK",
+    "label.reference": "TC",
+    "label.ceiling": "Trần",
+    "label.floor": "Sàn",
+    "label.buy": "Bên mua",
+    "label.close": "Khớp lệnh",
+    "label.sale": "Bên bán",
+    "label.totalVol": "Tổng KL"
+}

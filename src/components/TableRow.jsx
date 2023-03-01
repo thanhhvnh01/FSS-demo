@@ -1,0 +1,131 @@
+import { Td, Text, Tr } from "@chakra-ui/react";
+import React from "react";
+
+const TableRow = ({ blink, refValue, value, columns }) => {
+  const cellColor = (refPrice, currentPrice) => {
+    if (currentPrice > refPrice) {
+      return "green";
+    }
+    if (currentPrice < refPrice) {
+      return "red";
+    }
+    if (currentPrice === value.reference) {
+      return "yellow";
+    }
+    if (currentPrice === value.ceiling) {
+      return "purple";
+    }
+    if (currentPrice === value.floor) {
+      return "blue";
+    } else {
+      return "green";
+    }
+  };
+
+  const roundValue = (value) => {
+    return (value / 1000).toFixed(2);
+  };
+
+  return (
+    <>
+      {!!value && (
+        <Tr>
+          {columns.includes("symbol") && (
+            <Td>
+              <Text
+                color={cellColor(refValue?.closePrice, value?.closePrice)}
+                fontWeight="bold"
+              >
+                {value.symbol}
+              </Text>
+            </Td>
+          )}
+          {columns.includes("reference") && (
+            <Td sx={{ backgroundColor: "#404040" }}>
+              <Text color="yellow">{roundValue(value.reference)}</Text>
+            </Td>
+          )}
+          {columns.includes("ceiling") && (
+            <Td sx={{ backgroundColor: "#404040" }}>
+              <Text color="purple">{roundValue(value.ceiling)}</Text>
+            </Td>
+          )}
+          {columns.includes("floor") && (
+            <Td sx={{ backgroundColor: "#404040" }}>
+              <Text color="blue">{roundValue(value.floor)}</Text>
+            </Td>
+          )}
+          {/* Mua */}
+          <Td>
+            <Text color={cellColor(refValue?.offerPrice3, value.offerPrice3)}>
+              {roundValue(value.offerPrice3)}
+            </Text>
+          </Td>
+          <Td>
+            <Text color={cellColor(refValue?.offerPrice3, value.offerPrice3)}>
+              {roundValue(value.offerVol3)}
+            </Text>
+          </Td>
+          <Td>
+            <Text color={cellColor()}>{roundValue(value.offerPrice2)}</Text>
+          </Td>
+          <Td>
+            <Text color={cellColor()}>{roundValue(value.offerVol2)}</Text>
+          </Td>
+          <Td>
+            <Text color={cellColor(refValue?.offerPrice1, value.offerPrice1)}>
+              {roundValue(value.offerPrice1)}
+            </Text>
+          </Td>
+          <Td>
+            <Text color={cellColor()}>{roundValue(value.offerVol1)}</Text>
+          </Td>
+          {/* Khop lenh */}
+          <Td
+            sx={{
+              backgroundColor: "#404040",
+            }}
+          >
+            <Text color={cellColor(refValue?.closePrice, value.closePrice)}>
+              {roundValue(value.closePrice)}
+            </Text>
+          </Td>
+          <Td sx={{ backgroundColor: "#404040" }}>
+            <Text color={cellColor(refValue?.closePrice, value.closePrice)}>
+              {roundValue(value.closeVol)}
+            </Text>
+          </Td>
+          <Td sx={{ backgroundColor: "#404040" }}>
+            <Text color={cellColor(refValue?.closePrice, value.closePrice)}>
+              {roundValue(value.change)}
+            </Text>
+          </Td>
+          {/* Ban */}
+          <Td>
+            <Text color={cellColor()}>{roundValue(value.bidPrice1)}</Text>
+          </Td>
+          <Td>
+            <Text color={cellColor()}>{roundValue(value.bidVol1)}</Text>
+          </Td>
+          <Td>
+            <Text color={cellColor()}>{roundValue(value.bidPrice2)}</Text>
+          </Td>
+          <Td>
+            <Text color={cellColor()}>{roundValue(value.bidVol2)}</Text>
+          </Td>
+          <Td>
+            <Text color={cellColor()}>{roundValue(value.bidPrice3)}</Text>
+          </Td>
+          <Td>
+            <Text color={cellColor()}>{roundValue(value.bidVol3)}</Text>
+          </Td>
+          <Td>
+            <Text color={cellColor()}>{roundValue(value.bidVol3)}</Text>
+          </Td>
+        </Tr>
+      )}
+    </>
+  );
+};
+
+export default TableRow;
