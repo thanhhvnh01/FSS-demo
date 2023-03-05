@@ -19,6 +19,7 @@ const TableSettingModal = ({ isOpen, onClose, columns, setColumns }) => {
             value={columns}
             onChange={(e) => {
               setColumns(e);
+              4565;
             }}
           >
             <HStack justifyContent="space-around">

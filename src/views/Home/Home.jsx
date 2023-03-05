@@ -4,6 +4,7 @@ import { getData } from "../../data_HOSE";
 import MainTable from "../../components/Table";
 import TableSettingModal from "./TableSettingModal";
 import { getData_HNX } from "../../data_HNX";
+import Navbar from "../../layouts/Navbar/Navbar";
 
 const defaultColumns = [
   "symbol",
@@ -58,7 +59,7 @@ const Home = () => {
     const random = setInterval(() => {
       const randomArray = getMultipleRandom(stockIds, 6);
       setChangedData(randomArray);
-    }, 1000);
+    }, 3000);
 
     return () => {
       clearInterval(random);
@@ -113,8 +114,10 @@ const Home = () => {
   };
 
   return (
-    <>
+    <div style={{ background: "#232323" }}>
+      <Navbar />
       <MainTable
+        sx={{ mt: "40px" }}
         data={data}
         initData={initData}
         columns={columns()}
@@ -122,6 +125,7 @@ const Home = () => {
           setModalOpen(true);
         }}
         setSelectedMarket={setSelectedMarket}
+        selectedMarket={selectedMarket}
       />
       {modalOpen && modalType === "table-setting" && (
         <TableSettingModal
@@ -133,7 +137,7 @@ const Home = () => {
           setColumns={setColumns()}
         />
       )}
-    </>
+    </div>
   );
 };
 

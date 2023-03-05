@@ -7,5 +7,22 @@
     "label.buy": "Bên mua",
     "label.close": "Khớp lệnh",
     "label.sale": "Bên bán",
-    "label.totalVol": "Tổng KL"
+    "label.bidPrice3": "Giá 3",
+    "label.bidVol3": "KL 3",
+    "label.bidPrice2": "Giá 2",
+    "label.bidVol2": "KL 2",
+    "label.bidPrice1": "Giá 1",
+    "label.bidVol1": "KL 1",
+    "label.closePrice": "Giá",
+    "label.closeVol": "KL",
+    "label.change": "-/+",
+    "label.offerPrice1": "Giá 1",
+    "label.offerVol1": "KL 1",
+    "label.offerPrice2": "Giá 2",
+    "label.offerVol2": "KL 2",
+    "label.offerPrice3": "Giá 3",
+    "label.offerVol3": "KL 3",
+    "label.totalVol": "Tổng KL",
+
+    "btn.login": "Đăng nhập"
 }

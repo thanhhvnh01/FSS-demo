@@ -15,60 +15,95 @@ const table_Head1 = [
   { label: "totalVol", rowSpan: 2 },
 ];
 
-const MainTable = ({ data, initData, action, columns, setSelectedMarket }) => {
+const table_Head2 = [
+  { label: "bidPrice3" },
+  { label: "bidVol3" },
+  { label: "bidPrice2" },
+  { label: "bidVol2" },
+  { label: "bidPrice1" },
+  { label: "bidVol1" },
+  { label: "closePrice" },
+  { label: "closeVol" },
+  { label: "change" },
+  { label: "offerPrice1" },
+  { label: "offerVol1" },
+  { label: "offerPrice2" },
+  { label: "offerVol2" },
+  { label: "offerPrice3" },
+  { label: "offerVol3" },
+];
+const MainTable = ({
+  data,
+  initData,
+  action,
+  columns,
+  setSelectedMarket,
+  selectedMarket,
+  ...props
+}) => {
   return (
-    <TableContainer>
-      <TableHeader action={action} setSelectedMarket={setSelectedMarket} />
-      <Table
-        variant="simple"
-        size="sm"
-        background="black"
-        sx={{ tableLayout: "fixed" }}
-      >
-        <Thead background="black">
-          <Tr>
-            {table_Head1.map((t) => {
-              if (columns.includes(t.label))
+    <TableContainer {...props}>
+      <TableHeader
+        action={action}
+        setSelectedMarket={setSelectedMarket}
+        selectedMarket={selectedMarket}
+      />
+      <div className="table-fixed-head">
+        <Table
+          variant="simple"
+          size="sm"
+          background="black"
+          sx={{ tableLayout: "fixed" }}
+        >
+          <Thead
+            background="black"
+            sx={{ position: "fixed", top: "68px", width: "100%" }}
+          >
+            <Tr>
+              {table_Head1.map((t, index) => {
+                if (columns.includes(t.label))
+                  return (
+                    <Th
+                      key={index}
+                      rowSpan={t.rowSpan}
+                      colSpan={t?.colSpan}
+                      sx={{ textAlign: "center", width: "73.38px" }}
+                    >
+                      <FormattedMessage id={`label.${t.label}`} />
+                    </Th>
+                  );
+              })}
+            </Tr>
+            <Tr>
+              {table_Head2.map((t, index) => {
                 return (
                   <Th
-                    rowSpan={t.rowSpan}
-                    colSpan={t?.colSpan}
-                    sx={{ textAlign: "center" }}
+                    rowSpan={1}
+                    key={index}
+                    sx={{ textAlign: "center", width: "73.38px" }}
                   >
                     <FormattedMessage id={`label.${t.label}`} />
                   </Th>
                 );
+              })}
+            </Tr>
+          </Thead>
+          <Tbody sx={{ paddingTop: "79px", display: "block" }}>
+            {data.map((item) => {
+              const refValue = initData.filter((i) => {
+                return i.StockId === item.StockId;
+              });
+              return (
+                <TableRow
+                  refValue={refValue[0]}
+                  value={item}
+                  columns={columns}
+                />
+              );
             })}
-          </Tr>
-          <Tr>
-            <Th rowSpan={1}>Giá 3</Th>
-            <Th rowSpan={1}>KL 3</Th>
-            <Th rowSpan={1}>Giá 2</Th>
-            <Th rowSpan={1}>KL 2</Th>
-            <Th rowSpan={1}>Giá 1</Th>
-            <Th rowSpan={1}>KL 1</Th>
-            <Th rowSpan={1}>Giá</Th>
-            <Th rowSpan={1}>KL</Th>
-            <Th rowSpan={1}>+/-</Th>
-            <Th rowSpan={1}>Giá 1</Th>
-            <Th rowSpan={1}>KL 1</Th>
-            <Th rowSpan={1}>Giá 2</Th>
-            <Th rowSpan={1}>KL 2</Th>
-            <Th rowSpan={1}>Giá 3</Th>
-            <Th rowSpan={1}>KL 3</Th>
-          </Tr>
-        </Thead>
-        <Tbody>
-          {data.map((item) => {
-            const refValue = initData.filter((i) => {
-              return i.StockId === item.StockId;
-            });
-            return (
-              <TableRow refValue={refValue[0]} value={item} columns={columns} />
-            );
-          })}
-        </Tbody>
-      </Table>
+          </Tbody>
+        </Table>
+      </div>
     </TableContainer>
   );
 };
