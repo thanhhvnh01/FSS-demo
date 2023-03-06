@@ -10,13 +10,16 @@ import {
 import React from "react";
 import { FormattedMessage } from "react-intl";
 import { FaUserAlt } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const UserAction = () => {
   return (
     <Flex ml="auto">
-      <Button colorScheme="blue" size="xs">
-        <FormattedMessage id="btn.login" />
-      </Button>
+      <Link to="/">
+        <Button colorScheme="blue" size="xs">
+          <FormattedMessage id="btn.login" />
+        </Button>
+      </Link>
       <Menu>
         <MenuButton sx={{ px: 5 }}>
           <FaUserAlt color="#fffff" />

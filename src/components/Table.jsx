@@ -53,11 +53,11 @@ const MainTable = ({
           variant="simple"
           size="sm"
           background="black"
-          sx={{ tableLayout: "fixed" }}
+          sx={{ tableLayout: "auto", width: "100%" }}
         >
           <Thead
             background="black"
-            sx={{ position: "fixed", top: "68px", width: "100%" }}
+            sx={{ position: "fixed", top: "75px", width: "100%" }}
           >
             <Tr>
               {table_Head1.map((t, index) => {
@@ -88,7 +88,7 @@ const MainTable = ({
               })}
             </Tr>
           </Thead>
-          <Tbody sx={{ paddingTop: "79px", display: "block" }}>
+          <Tbody sx={{ paddingTop: "79px", display: "block", width: "100%" }}>
             {data.map((item) => {
               const refValue = initData.filter((i) => {
                 return i.StockId === item.StockId;

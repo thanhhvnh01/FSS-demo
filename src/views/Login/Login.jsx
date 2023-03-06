@@ -1,8 +1,10 @@
 import {
   Button,
+  Card,
   Checkbox,
   Container,
   HStack,
+  Image,
   Input,
   InputGroup,
   InputRightElement,
@@ -22,11 +24,10 @@ const Login = () => {
   // }, []);
 
   return (
-    <Container centerContent maxW="lg" mt="250px">
-      <Text fontSize="3xl" fontWeight="bold">
-        Đăng nhập
-      </Text>
-      <Stack spacing={3} sx={{ display: "flex", my: "auto" }}>
+    <Card className="login-card" centerContent maxW="lg">
+      <Image w="30vh" src="/public/logo-company.png" />
+
+      <Stack spacing={3} sx={{ display: "flex", mt: 5 }}>
         <Input variant="filled" placeholder="Tài khoản" />
         <InputGroup>
           <Input
@@ -40,17 +41,25 @@ const Login = () => {
             </Button>
           </InputRightElement>
         </InputGroup>
-        <VStack sx={{ alignItems: "left" }}>
-          <Checkbox>Nhớ mật khẩu</Checkbox>
+        <Link to="/home">
+          <Button w="100%" bg="#125d8e" color="white">
+            Đăng nhập
+          </Button>
+        </Link>
+        <HStack sx={{ justifyContent: "space-between" }}>
           <Link to="/register">
-            <Text>Chưa có tài khoản ? đăng kí.</Text>
+            <Text fontSize="xs" color="white">
+              Mở tài khoản
+            </Text>
           </Link>
-        </VStack>
+          <Link to="/register">
+            <Text fontSize="xs" color="white">
+              Quên mật khẩu
+            </Text>
+          </Link>
+        </HStack>
       </Stack>
-      <Button>
-        <Link to="/home">Đăng nhập</Link>
-      </Button>
-    </Container>
+    </Card>
   );
 };
 

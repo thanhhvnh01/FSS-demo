@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 const TableHeader = ({ action, setSelectedMarket, selectedMarket }) => {
   return (
     <div style={{ position: "fixed", width: "100%", background: "#242424" }}>
-      <Box>
+      <Box pt={2}>
         <HStack>
           <span>
             <input className="search-input" placeholder="Tìm kiếm mã CK" />
@@ -24,6 +24,19 @@ const TableHeader = ({ action, setSelectedMarket, selectedMarket }) => {
               }
             >
               HOSE
+            </div>
+            <div
+              onClick={() => {
+                setSelectedMarket("hnx");
+              }}
+              colorScheme="blue"
+              className={
+                selectedMarket === "hnx"
+                  ? "has-sub-menu-active"
+                  : "has-sub-menu"
+              }
+            >
+              HNX
             </div>
             <div
               onClick={() => {
