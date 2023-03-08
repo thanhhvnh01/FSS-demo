@@ -13,6 +13,9 @@ const table_Head1 = [
   { label: "close", rowSpan: 1, colSpan: 3 },
   { label: "sale", rowSpan: 1, colSpan: 6 },
   { label: "totalVol", rowSpan: 2 },
+  { label: "price", rowSpan: 1, colSpan: 3 },
+  { label: "surplus", rowSpan: 1, colSpan: 2 },
+  { label: "international", rowSpan: 1, colSpan: 2 },
 ];
 
 const table_Head2 = [
@@ -31,6 +34,13 @@ const table_Head2 = [
   { label: "offerVol2" },
   { label: "offerPrice3" },
   { label: "offerVol3" },
+  { label: "offerVol2" },
+  { label: "offerPrice3" },
+  { label: "offerVol3" },
+  { label: "offerVol2" },
+  { label: "offerPrice3" },
+  { label: "offerVol3" },
+  { label: "offerVol3" },
 ];
 const MainTable = ({
   data,
@@ -43,58 +53,62 @@ const MainTable = ({
 }) => {
   return (
     <TableContainer {...props}>
-      <TableHeader
-        action={action}
-        setSelectedMarket={setSelectedMarket}
-        selectedMarket={selectedMarket}
-      />
       <div className="table-fixed-head">
         <Table
           variant="simple"
           size="sm"
           background="black"
-          sx={{ tableLayout: "auto", width: "100%" }}
+          sx={{ width: "100%", marginTop: 10, tableLayout: "fixed  " }}
         >
-          <Thead
-            background="black"
-            sx={{ position: "fixed", top: "75px", width: "100%" }}
+          <thead
+            style={{
+              width: "100%",
+            }}
           >
-            <Tr>
+            <tr>
               {table_Head1.map((t, index) => {
                 if (columns.includes(t.label))
                   return (
-                    <Th
+                    <th
                       key={index}
                       rowSpan={t.rowSpan}
                       colSpan={t?.colSpan}
-                      sx={{ textAlign: "center", width: "73.38px" }}
+                      style={{
+                        textAlign: "center",
+                        color: "white",
+                      }}
                     >
                       <FormattedMessage id={`label.${t.label}`} />
-                    </Th>
+                    </th>
                   );
               })}
-            </Tr>
-            <Tr>
+            </tr>
+            <tr>
               {table_Head2.map((t, index) => {
                 return (
-                  <Th
+                  <th
                     rowSpan={1}
                     key={index}
-                    sx={{ textAlign: "center", width: "73.38px" }}
+                    style={{
+                      textAlign: "center",
+                      width: "73.38px",
+                      color: "white",
+                    }}
                   >
                     <FormattedMessage id={`label.${t.label}`} />
-                  </Th>
+                  </th>
                 );
               })}
-            </Tr>
-          </Thead>
-          <Tbody sx={{ paddingTop: "79px", display: "block", width: "100%" }}>
-            {data.map((item) => {
+            </tr>
+          </thead>
+          <Tbody sx={{ marginTop: "79px", width: "100%" }}>
+            {data.map((item, index) => {
               const refValue = initData.filter((i) => {
                 return i.StockId === item.StockId;
               });
               return (
                 <TableRow
+                  key={index}
                   refValue={refValue[0]}
                   value={item}
                   columns={columns}

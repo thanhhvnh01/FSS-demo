@@ -62,43 +62,64 @@ const TableRow = ({ blink, refValue, value, columns }) => {
           )}
           {columns.includes("reference") && (
             <Td className={cellColor()} sx={{ backgroundColor: "#404040" }}>
-              <Text color="yellow">{roundValue(value.reference)}</Text>
+              <Text className="cell-text" color="yellow">
+                {roundValue(value.reference)}
+              </Text>
             </Td>
           )}
           {columns.includes("ceiling") && (
             <Td className={cellColor()} sx={{ backgroundColor: "#404040" }}>
-              <Text color="purple">{roundValue(value.ceiling)}</Text>
+              <Text className="cell-text" color="purple">
+                {roundValue(value.ceiling)}
+              </Text>
             </Td>
           )}
           {columns.includes("floor") && (
             <Td className={cellColor()} sx={{ backgroundColor: "#404040" }}>
-              <Text color="blue">{roundValue(value.floor)}</Text>
+              <Text className="cell-text" color="blue">
+                {roundValue(value.floor)}
+              </Text>
             </Td>
           )}
           {/* Mua */}
           <Td className={cellColor(refValue?.offerPrice3, value.offerPrice3)}>
-            <Text color={textColor(refValue?.offerPrice3, value.offerPrice3)}>
+            <Text
+              className="cell-text"
+              color={textColor(refValue?.offerPrice3, value.offerPrice3)}
+            >
               {roundValue(value.offerPrice3)}
             </Text>
           </Td>
           <Td className={cellColor(refValue?.offerPrice3, value.offerPrice3)}>
-            <Text color={textColor(refValue?.offerPrice3, value.offerPrice3)}>
+            <Text
+              className="cell-text"
+              color={textColor(refValue?.offerPrice3, value.offerPrice3)}
+            >
               {roundValue(value.offerVol3)}
             </Text>
           </Td>
           <Td className={cellColor()}>
-            <Text color={textColor()}>{roundValue(value.offerPrice2)}</Text>
+            <Text className="cell-text" color={textColor()}>
+              {roundValue(value.offerPrice2)}
+            </Text>
           </Td>
           <Td className={cellColor()}>
-            <Text color={textColor()}>{roundValue(value.offerVol2)}</Text>
+            <Text className="cell-text" color={textColor()}>
+              {roundValue(value.offerVol2)}
+            </Text>
           </Td>
           <Td className={cellColor(refValue?.offerPrice1, value.offerPrice1)}>
-            <Text color={textColor(refValue?.offerPrice1, value.offerPrice1)}>
+            <Text
+              className="cell-text"
+              color={textColor(refValue?.offerPrice1, value.offerPrice1)}
+            >
               {roundValue(value.offerPrice1)}
             </Text>
           </Td>
           <Td className={cellColor()}>
-            <Text color={textColor()}>{roundValue(value.offerVol1)}</Text>
+            <Text className="cell-text" color={textColor()}>
+              {roundValue(value.offerVol1)}
+            </Text>
           </Td>
           {/* Khop lenh */}
           <Td
@@ -107,41 +128,64 @@ const TableRow = ({ blink, refValue, value, columns }) => {
               backgroundColor: "#404040",
             }}
           >
-            <Text color={textColor(refValue?.closePrice, value.closePrice)}>
+            <Text
+              className="cell-text"
+              color={textColor(refValue?.closePrice, value.closePrice)}
+            >
               {roundValue(value.closePrice)}
             </Text>
           </Td>
           <Td className={cellColor()} sx={{ backgroundColor: "#404040" }}>
-            <Text color={textColor(refValue?.closePrice, value.closePrice)}>
+            <Text
+              className="cell-text"
+              color={textColor(refValue?.closePrice, value.closePrice)}
+            >
               {roundValue(value.closeVol)}
             </Text>
           </Td>
           <Td className={cellColor()} sx={{ backgroundColor: "#404040" }}>
-            <Text color={textColor(refValue?.closePrice, value.closePrice)}>
+            <Text
+              className="cell-text"
+              color={textColor(refValue?.closePrice, value.closePrice)}
+            >
               {roundValue(value.change)}
             </Text>
           </Td>
           {/* Ban */}
           <Td className={cellColor()}>
-            <Text color={textColor()}>{roundValue(value.bidPrice1)}</Text>
+            <Text className="cell-text" color={textColor()}>
+              {roundValue(value.bidPrice1)}
+            </Text>
           </Td>
           <Td className={cellColor()}>
-            <Text color={textColor()}>{roundValue(value.bidVol1)}</Text>
+            <Text className="cell-text" color={textColor()}>
+              {roundValue(value.bidVol1)}
+            </Text>
           </Td>
           <Td className={cellColor()}>
-            <Text color={textColor()}>{roundValue(value.bidPrice2)}</Text>
+            <Text className="cell-text" color={textColor()}>
+              {roundValue(value.bidPrice2)}
+            </Text>
           </Td>
           <Td className={cellColor()}>
-            <Text color={textColor()}>{roundValue(value.bidVol2)}</Text>
+            <Text className="cell-text" color={textColor()}>
+              {roundValue(value.bidVol2)}
+            </Text>
           </Td>
           <Td className={cellColor()}>
-            <Text color={textColor()}>{roundValue(value.bidPrice3)}</Text>
+            <Text className="cell-text" color={textColor()}>
+              {roundValue(value.bidPrice3)}
+            </Text>
           </Td>
           <Td className={cellColor()}>
-            <Text color={textColor()}>{roundValue(value.bidVol3)}</Text>
+            <Text className="cell-text" color={textColor()}>
+              {roundValue(value.bidVol3)}
+            </Text>
           </Td>
           <Td className={cellColor()}>
-            <Text color={textColor()}>{roundValue(value.bidVol3)}</Text>
+            <Text className="cell-text" color={textColor()}>
+              {roundValue(value.bidVol3)}
+            </Text>
           </Td>
         </Tr>
       )}

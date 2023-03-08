@@ -5,6 +5,7 @@ import MainTable from "../../components/Table";
 import TableSettingModal from "./TableSettingModal";
 import { getData_HNX } from "../../data_HNX";
 import Navbar from "../../layouts/Navbar/Navbar";
+import TableHeader from "../../components/TableHeader";
 
 const defaultColumns = [
   "symbol",
@@ -15,6 +16,9 @@ const defaultColumns = [
   "close",
   "sale",
   "totalVol",
+  "price",
+  "surplus",
+  "international",
 ];
 
 const Home = () => {
@@ -59,7 +63,7 @@ const Home = () => {
     const random = setInterval(() => {
       const randomArray = getMultipleRandom(stockIds, 6);
       setChangedData(randomArray);
-    }, 3000);
+    }, 6000);
 
     return () => {
       clearInterval(random);
@@ -113,26 +117,38 @@ const Home = () => {
     }
   };
 
+  const handleCloseModal = (modalResult) => {
+    setModalOpen(false);
+    setColumns_HNX(modalResult);
+    setColumns_HOSE(modalResult);
+  };
+
+  // useEffect(() => {
+  //   console.log("im running");
+  // }, [columns_HNX, columns_HOSE, modalOpen]);
+
   return (
     <div style={{ background: "#232323" }}>
       <Navbar />
-      <MainTable
-        sx={{ mt: "40px" }}
-        data={data}
-        initData={initData}
-        columns={columns()}
+      <TableHeader
         action={() => {
           setModalOpen(true);
         }}
         setSelectedMarket={setSelectedMarket}
         selectedMarket={selectedMarket}
       />
+      <MainTable
+        sx={{ mt: "40px" }}
+        data={data}
+        initData={initData}
+        columns={columns()}
+        setSelectedMarket={setSelectedMarket}
+        selectedMarket={selectedMarket}
+      />
       {modalOpen && modalType === "table-setting" && (
         <TableSettingModal
           isOpen={modalOpen}
-          onClose={() => {
-            setModalOpen(false);
-          }}
+          onClose={handleCloseModal}
           columns={columns()}
           setColumns={setColumns()}
         />

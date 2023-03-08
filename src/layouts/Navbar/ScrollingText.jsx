@@ -34,8 +34,8 @@ const data = [
 const Content = () => {
   return (
     <span>
-      {data.map((d) => (
-        <span>
+      {data.map((d, index) => (
+        <span key={index}>
           <span className="orange-txt">{d.symbol}: </span>{" "}
           <span className="yellow-txt">KLGD: </span>{" "}
           <span className="scroll-value">{d.properties.tradeVol} </span>

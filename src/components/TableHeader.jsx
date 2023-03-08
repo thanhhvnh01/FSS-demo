@@ -1,10 +1,26 @@
 import { Box, Button, HStack } from "@chakra-ui/react";
 import React from "react";
+import { FiMoreVertical } from "react-icons/fi";
 import { NavLink } from "react-router-dom";
 
 const TableHeader = ({ action, setSelectedMarket, selectedMarket }) => {
+  const labelHOSE = () => {
+    if (selectedMarket === "vn30") {
+      return "VN30";
+    } else {
+      return "HOSE";
+    }
+  };
+
   return (
-    <div style={{ position: "fixed", width: "100%", background: "#242424" }}>
+    <div
+      style={{
+        position: "fixed",
+        width: "100%",
+        background: "#242424",
+        zIndex: 0,
+      }}
+    >
       <Box pt={2}>
         <HStack>
           <span>
@@ -13,23 +29,50 @@ const TableHeader = ({ action, setSelectedMarket, selectedMarket }) => {
           </span>
           <HStack>
             <div
-              onClick={() => {
-                setSelectedMarket("hose");
-              }}
-              colorScheme="blue"
               className={
                 selectedMarket === "hose"
                   ? "has-sub-menu-active"
                   : "has-sub-menu"
               }
             >
-              HOSE
+              <div
+                onClick={() => {
+                  setSelectedMarket("hose");
+                }}
+              >
+                {labelHOSE()}
+              </div>
+              <div className="dropdown-content">
+                <div
+                  onClick={() => {
+                    setSelectedMarket("hose");
+                  }}
+                  className={
+                    selectedMarket === "hose"
+                      ? "dropdown-item-active"
+                      : "dropdown-item"
+                  }
+                >
+                  HOSE
+                </div>
+                <div
+                  onClick={() => {
+                    setSelectedMarket("vn30");
+                  }}
+                  className={
+                    selectedMarket === "vn30"
+                      ? "dropdown-item-active"
+                      : "dropdown-item"
+                  }
+                >
+                  VN30
+                </div>
+              </div>
             </div>
             <div
               onClick={() => {
                 setSelectedMarket("hnx");
               }}
-              colorScheme="blue"
               className={
                 selectedMarket === "hnx"
                   ? "has-sub-menu-active"
@@ -37,24 +80,35 @@ const TableHeader = ({ action, setSelectedMarket, selectedMarket }) => {
               }
             >
               HNX
+              <div className="dropdown-content">
+                <div
+                  className={
+                    selectedMarket === "hnx"
+                      ? "dropdown-item-active"
+                      : "dropdown-item"
+                  }
+                >
+                  HNX
+                </div>
+                <div
+                  className={
+                    selectedMarket === "hnx30"
+                      ? "dropdown-item-active"
+                      : "dropdown-item"
+                  }
+                >
+                  HNX30
+                </div>
+              </div>
             </div>
-            <div
-              onClick={() => {
-                setSelectedMarket("hnx");
-              }}
-              colorScheme="blue"
-              className={
-                selectedMarket === "hnx"
-                  ? "has-sub-menu-active"
-                  : "has-sub-menu"
-              }
-            >
-              HNX
-            </div>
-            {/* <Button onClick={action} colorScheme="blue">
-              Open
-            </Button> */}
           </HStack>
+          <FiMoreVertical
+            style={{ display: "flex", marginLeft: "auto", marginRight: 10 }}
+            color="white"
+            onClick={() => {
+              action();
+            }}
+          />
         </HStack>
       </Box>
     </div>

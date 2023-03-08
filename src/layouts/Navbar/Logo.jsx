@@ -6,7 +6,7 @@ const Logo = (props) => {
   return (
     <div {...props}>
       <Link to="/">
-        <Image h="40px" src="/public/logo.png" />
+        <Image h="40px" src="/logo.png" />
       </Link>
     </div>
   );

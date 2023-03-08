@@ -25,7 +25,7 @@ const Login = () => {
 
   return (
     <Card className="login-card" centerContent maxW="lg">
-      <Image w="30vh" src="/public/logo-company.png" />
+      <Image w="30vh" src="/logo-company.png" />
 
       <Stack spacing={3} sx={{ display: "flex", mt: 5 }}>
         <Input variant="filled" placeholder="Tài khoản" />

@@ -1,25 +1,32 @@
 import {
+  Button,
   Checkbox,
   CheckboxGroup,
   HStack,
   Modal,
   ModalBody,
   ModalContent,
+  ModalFooter,
   ModalHeader,
 } from "@chakra-ui/react";
-import React from "react";
+import React, { memo, useEffect, useState } from "react";
 
-const TableSettingModal = ({ isOpen, onClose, columns, setColumns }) => {
+const TableSettingModal = memo(({ isOpen, onClose, columns, setColumns }) => {
+  const [options, setOptions] = useState(columns);
+
+  const handleSaveModal = () => {
+    onClose(options);
+  };
+
   return (
-    <Modal isOpen={isOpen} onClose={onClose}>
+    <Modal closeOnOverlayClick={false} isOpen={isOpen} onClose={onClose}>
       <ModalContent>
         <ModalHeader>Ẩn hiện các cột</ModalHeader>
         <ModalBody>
           <CheckboxGroup
-            value={columns}
+            value={options}
             onChange={(e) => {
-              setColumns(e);
-              4565;
+              setOptions(e);
             }}
           >
             <HStack justifyContent="space-around">
@@ -30,9 +37,11 @@ const TableSettingModal = ({ isOpen, onClose, columns, setColumns }) => {
             </HStack>
           </CheckboxGroup>
         </ModalBody>
+        <ModalFooter>
+          <Button onClick={handleSaveModal}>Chấp nhận</Button>
+        </ModalFooter>
       </ModalContent>
     </Modal>
   );
-};
-
+});
 export default TableSettingModal;

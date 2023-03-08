@@ -23,6 +23,9 @@
     "label.offerPrice3": "Giá 3",
     "label.offerVol3": "KL 3",
     "label.totalVol": "Tổng KL",
+    "label.price": "Giá",
+    "label.surplus": "Dư",
+    "label.international": "ĐTNN",
 
     "btn.login": "Đăng nhập"
 }
