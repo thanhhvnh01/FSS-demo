@@ -12,6 +12,14 @@ const TableHeader = ({ action, setSelectedMarket, selectedMarket }) => {
     }
   };
 
+  const labelHNX = () => {
+    if (selectedMarket === "hnx30") {
+      return "HNX30";
+    } else {
+      return "HNX";
+    }
+  };
+
   return (
     <div
       style={{
@@ -70,18 +78,24 @@ const TableHeader = ({ action, setSelectedMarket, selectedMarket }) => {
               </div>
             </div>
             <div
-              onClick={() => {
-                setSelectedMarket("hnx");
-              }}
               className={
                 selectedMarket === "hnx"
                   ? "has-sub-menu-active"
                   : "has-sub-menu"
               }
             >
-              HNX
+              <div
+                onClick={() => {
+                  setSelectedMarket("hnx");
+                }}
+              >
+                {labelHNX()}
+              </div>
               <div className="dropdown-content">
                 <div
+                  onClick={() => {
+                    setSelectedMarket("hnx");
+                  }}
                   className={
                     selectedMarket === "hnx"
                       ? "dropdown-item-active"
@@ -91,6 +105,9 @@ const TableHeader = ({ action, setSelectedMarket, selectedMarket }) => {
                   HNX
                 </div>
                 <div
+                  onClick={() => {
+                    setSelectedMarket("hnx30");
+                  }}
                   className={
                     selectedMarket === "hnx30"
                       ? "dropdown-item-active"

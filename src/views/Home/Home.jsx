@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react";
 
-import { getData } from "../../data_HOSE";
 import MainTable from "../../components/Table";
 import TableSettingModal from "./TableSettingModal";
-import { getData_HNX } from "../../data_HNX";
 import Navbar from "../../layouts/Navbar/Navbar";
-import TableHeader from "../../components/TableHeader";
+import TableHeader from "../../components/TableToolbar";
+
+// get data
+import { getData } from "../../api/data_HOSE";
+import { getData_HNX } from "../../api/data_HNX";
+import { getData_HNX30 } from "../../api/data_HNX30";
 
 const defaultColumns = [
   "symbol",
@@ -37,8 +40,12 @@ const Home = () => {
     let response = [];
     if (selectedMarket === "hose") {
       response = getData();
-    } else {
+    }
+    if (selectedMarket === "hnx") {
       response = getData_HNX();
+    }
+    if (selectedMarket === "hnx30") {
+      response = getData_HNX30();
     }
     setInitData(response);
     setData(response);

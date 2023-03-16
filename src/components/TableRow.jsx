@@ -184,6 +184,41 @@ const TableRow = ({ blink, refValue, value, columns }) => {
           </Td>
           <Td className={cellColor()}>
             <Text className="cell-text" color={textColor()}>
+              {roundValue(value.TOTAL_BID_QTTY)}
+            </Text>
+          </Td>
+          <Td className={cellColor()}>
+            <Text className="cell-text" color={textColor()}>
+              {roundValue(value.bidVol3)}
+            </Text>
+          </Td>
+          <Td className={cellColor()}>
+            <Text className="cell-text" color={textColor()}>
+              {roundValue(value.bidVol3)}
+            </Text>
+          </Td>
+          <Td className={cellColor()}>
+            <Text className="cell-text" color={textColor()}>
+              {roundValue(value.bidVol3)}
+            </Text>
+          </Td>
+          <Td className={cellColor()}>
+            <Text className="cell-text" color={textColor()}>
+              {roundValue(value.bidVol3)}
+            </Text>
+          </Td>
+          <Td className={cellColor()}>
+            <Text className="cell-text" color={textColor()}>
+              {roundValue(value.bidVol3)}
+            </Text>
+          </Td>
+          <Td className={cellColor()}>
+            <Text className="cell-text" color={textColor()}>
+              {roundValue(value.bidVol3)}
+            </Text>
+          </Td>
+          <Td className={cellColor()}>
+            <Text className="cell-text" color={textColor()}>
               {roundValue(value.bidVol3)}
             </Text>
           </Td>

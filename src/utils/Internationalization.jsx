@@ -7,12 +7,14 @@ import { IntlProvider } from "react-intl";
 // ** User Language Data
 // import userMessagesEn from "src/assets/locales/en.json";
 import userMessagesVi from "../assets/locales/vi";
+import userMessagesEn from "../assets/locales/en";
 // import { Storage, STORAGE_KEYS } from "@utility/storage";
 // import { updateDeviceTokenAPI } from "@api/main";
 
 // ** Menu msg obj
 const menuMessages = {
   vi: { ...userMessagesVi },
+  en: { ...userMessagesEn },
 };
 
 // ** Create Context

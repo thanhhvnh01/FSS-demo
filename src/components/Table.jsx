@@ -1,7 +1,7 @@
 import React from "react";
 import { Table, TableContainer, Tbody, Th, Thead, Tr } from "@chakra-ui/react";
 import TableRow from "./TableRow";
-import TableHeader from "./TableHeader";
+import TableHeader from "./TableToolbar";
 import { FormattedMessage } from "react-intl";
 
 const table_Head1 = [
