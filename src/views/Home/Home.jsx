@@ -9,6 +9,8 @@ import TableHeader from "../../components/TableToolbar";
 import { getData } from "../../api/data_HOSE";
 import { getData_HNX } from "../../api/data_HNX";
 import { getData_HNX30 } from "../../api/data_HNX30";
+import Footer from "../../layouts/Footer/Footer";
+import { useNavigate } from "react-router-dom";
 
 const defaultColumns = [
   "symbol",
@@ -160,6 +162,7 @@ const Home = () => {
           setColumns={setColumns()}
         />
       )}
+      <Footer />
     </div>
   );
 };

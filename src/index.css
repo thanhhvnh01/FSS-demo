@@ -67,6 +67,14 @@ button:focus-visible {
   }
 }
 
+.footer{
+  position: fixed;
+  bottom: 0;
+  background-color: black;
+  width: 100%;
+  padding: 4px;
+}
+
 .auth-bg{
   background: url(/front_vi.png) no-repeat center, url(/background.jpg) no-repeat;
   background-size: cover;

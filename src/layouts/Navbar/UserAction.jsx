@@ -15,11 +15,16 @@ import {
 import React, { useContext, useState } from "react";
 import { FormattedMessage } from "react-intl";
 import { FaUserAlt } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { IntlContext } from "../../utils/Internationalization";
+import { useDispatch } from "react-redux";
+import { logoutAC } from "../../redux/actions/auth";
 
 const UserAction = () => {
   const intlContext = useContext(IntlContext);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const userData = JSON.parse(localStorage.getItem("userData"));
 
   const [lang, setLang] = useState(intlContext.locale);
 
@@ -27,6 +32,7 @@ const UserAction = () => {
     intlContext.switchLanguage(e);
     setLang(e);
   };
+
   return (
     <Flex ml="auto">
       <Link to="/">
@@ -65,6 +71,18 @@ const UserAction = () => {
                 </Stack>
               </RadioGroup>
             </Card>
+            {!!userData && (
+              <Button
+                color="white"
+                bg="tomato"
+                onClick={() => {
+                  dispatch(logoutAC());
+                  navigate("/");
+                }}
+              >
+                Đăng xuất
+              </Button>
+            )}
           </Stack>
         </MenuList>
       </Menu>

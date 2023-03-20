@@ -26,6 +26,7 @@
     "label.price": "Giá",
     "label.surplus": "Dư",
     "label.international": "ĐTNN",
+    "label.footerText": "Đơn vị TT cơ sở: Giá {x} Khối lượng: {y} - Đơn giá TT phái sinh: Giá: {z} Khối lượng {z} - Đơn vị TT lô lẻ: Khối lượng {z}",
 
     "btn.login": "Đăng nhập"
 }
