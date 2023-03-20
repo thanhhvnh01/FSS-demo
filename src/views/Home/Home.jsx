@@ -33,9 +33,10 @@ const Home = () => {
   const [changedData, setChangedData] = useState([]);
   const [modalOpen, setModalOpen] = useState(false);
   const [modalType, setModalTye] = useState("table-setting");
-  // const [changeIndex, setChangeIndex] = useState([]);
   const [columns_HOSE, setColumns_HOSE] = useState(defaultColumns);
   const [columns_HNX, setColumns_HNX] = useState(defaultColumns);
+  const [columns_HNX30, setColumns_HNX30] = useState(defaultColumns);
+  const [columns_VN30, setColumns_VN30] = useState(defaultColumns);
   const [selectedMarket, setSelectedMarket] = useState("hose");
 
   useEffect(() => {
@@ -110,26 +111,36 @@ const Home = () => {
     }
   }, [changedData]);
 
-  const columns = () => {
+  const selectedMarketColumns = () => {
     if (selectedMarket === "hose") {
       return columns_HOSE;
-    } else {
+    }
+    if (selectedMarket === "vn30") {
+      return columns_VN30;
+    }
+    if (selectedMarket === "hnx") {
       return columns_HNX;
+    }
+    if (selectedMarket === "hnx30") {
+      return columns_HNX30;
     }
   };
 
-  const setColumns = () => {
-    if (selectedMarket === "hose") {
-      return setColumns_HOSE;
-    } else {
-      return setColumns_HNX;
-    }
+  const columns = {
+    hose: columns_HOSE,
+    vn30: columns_VN30,
+    hnx: columns_HNX,
+    hnx30: columns_HNX30,
   };
 
   const handleCloseModal = (modalResult) => {
     setModalOpen(false);
-    setColumns_HNX(modalResult);
-    setColumns_HOSE(modalResult);
+    if (!!modalResult) {
+      setColumns_HNX(modalResult.hnx);
+      setColumns_HOSE(modalResult.hose);
+      setColumns_HNX30(modalResult.hnx30);
+      setColumns_VN30(modalResult.vn30);
+    }
   };
 
   // useEffect(() => {
@@ -147,10 +158,10 @@ const Home = () => {
         selectedMarket={selectedMarket}
       />
       <MainTable
-        sx={{ mt: "40px" }}
+        sx={{ mt: "38px", pb: "30px" }}
         data={data}
         initData={initData}
-        columns={columns()}
+        columns={selectedMarketColumns()}
         setSelectedMarket={setSelectedMarket}
         selectedMarket={selectedMarket}
       />
@@ -158,8 +169,7 @@ const Home = () => {
         <TableSettingModal
           isOpen={modalOpen}
           onClose={handleCloseModal}
-          columns={columns()}
-          setColumns={setColumns()}
+          columns={columns}
         />
       )}
       <Footer />

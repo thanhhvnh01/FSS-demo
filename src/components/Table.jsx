@@ -58,7 +58,13 @@ const MainTable = ({
           variant="simple"
           size="sm"
           background="black"
-          sx={{ width: "100%", marginTop: 10, tableLayout: "fixed  " }}
+          sx={{
+            width: "100%",
+            marginTop: 9,
+            tableLayout: "fixed",
+            position: "fixed",
+            zIndex: 0,
+          }}
         >
           <thead
             style={{
@@ -91,7 +97,6 @@ const MainTable = ({
                     key={index}
                     style={{
                       textAlign: "center",
-                      width: "73.38px",
                       color: "white",
                     }}
                   >
@@ -101,7 +106,15 @@ const MainTable = ({
               })}
             </tr>
           </thead>
-          <Tbody sx={{ marginTop: "79px", width: "100%" }}>
+        </Table>
+        <Table sx={{ tableLayout: "fixed" }}>
+          <Tbody
+            sx={{
+              marginTop: "79px",
+              width: "100%",
+              borderTop: "110px solid transparent",
+            }}
+          >
             {data.map((item, index) => {
               const refValue = initData.filter((i) => {
                 return i.StockId === item.StockId;

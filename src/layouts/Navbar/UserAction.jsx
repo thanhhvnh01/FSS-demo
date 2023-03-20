@@ -35,16 +35,27 @@ const UserAction = () => {
 
   return (
     <Flex ml="auto">
-      <Link to="/">
-        <Button colorScheme="blue" size="xs">
-          <FormattedMessage id="btn.login" />
-        </Button>
-      </Link>
+      {userData ? (
+        <Text color="white">{userData.value.userName}</Text>
+      ) : (
+        <Link to="/">
+          <Button colorScheme="blue" size="xs">
+            <FormattedMessage id="btn.login" />
+          </Button>
+        </Link>
+      )}
       <Menu>
         <MenuButton sx={{ px: 5 }}>
           <FaUserAlt color="#fffff" />
         </MenuButton>
-        <MenuList sx={{ background: "#3a3a3a", px: 2 }}>
+        <MenuList
+          sx={{
+            background: "#3a3a3a",
+            px: 2,
+            zIndex: 15,
+            position: "relative",
+          }}
+        >
           <Stack>
             <Card px={5} py={2}>
               <Text>

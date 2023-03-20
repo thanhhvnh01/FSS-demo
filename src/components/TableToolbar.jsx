@@ -26,7 +26,7 @@ const TableHeader = ({ action, setSelectedMarket, selectedMarket }) => {
         position: "fixed",
         width: "100%",
         background: "#242424",
-        zIndex: 0,
+        zIndex: 1,
       }}
     >
       <Box pt={2}>
@@ -38,7 +38,7 @@ const TableHeader = ({ action, setSelectedMarket, selectedMarket }) => {
           <HStack>
             <div
               className={
-                selectedMarket === "hose"
+                selectedMarket === "hose" || selectedMarket === "vn30"
                   ? "has-sub-menu-active"
                   : "has-sub-menu"
               }
@@ -79,7 +79,7 @@ const TableHeader = ({ action, setSelectedMarket, selectedMarket }) => {
             </div>
             <div
               className={
-                selectedMarket === "hnx"
+                selectedMarket === "hnx" || selectedMarket === "hnx30"
                   ? "has-sub-menu-active"
                   : "has-sub-menu"
               }
