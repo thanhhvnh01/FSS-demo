@@ -35,12 +35,7 @@ const IntlProviderWrapper = ({ children }) => {
 
   return (
     <Context.Provider value={{ locale, switchLanguage }}>
-      <IntlProvider
-        key={locale}
-        locale={locale}
-        messages={messages}
-        defaultLocale="vi"
-      >
+      <IntlProvider locale={locale} messages={messages} defaultLocale="vi">
         {children}
       </IntlProvider>
     </Context.Provider>

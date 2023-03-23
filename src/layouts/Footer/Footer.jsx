@@ -1,7 +1,7 @@
 import React from "react";
 import { FormattedMessage } from "react-intl";
 
-const Footer = () => {
+const Footer = ({ action }) => {
   return (
     <div className="footer">
       <div>
@@ -15,6 +15,15 @@ const Footer = () => {
             }}
           />
         </span>
+
+        <div
+          style={{ color: "white", fontSize: "12px" }}
+          onClick={() => {
+            action();
+          }}
+        >
+          Đặt lệnh
+        </div>
       </div>
     </div>
   );

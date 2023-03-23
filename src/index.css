@@ -201,14 +201,12 @@ th{
   color: #d5ae22;
   font-weight: bold;
   font-size: small;
-
 }
 
 .scroll-value{
   margin-right: 50px;
   font-weight: bold;
   font-size: small;
-
 }
 
 .search-input{
@@ -234,7 +232,6 @@ th{
   position: relative;
   display: inline-block;
   cursor: pointer;
-
 }
 
 .has-sub-menu:hover .dropdown-content {display: block;}
@@ -249,7 +246,6 @@ th{
   position: relative;
   display: inline-block;
   cursor: pointer;
-
 }
 
 .dropdown-content{
