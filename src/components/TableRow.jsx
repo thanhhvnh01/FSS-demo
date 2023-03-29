@@ -4,7 +4,7 @@ import React from "react";
 const TableRow = ({ blink, refValue, value, columns }) => {
   const textColor = (refPrice, currentPrice) => {
     if (currentPrice > refPrice) {
-      return "green";
+      return "#0f0";
     }
     if (currentPrice < refPrice) {
       return "red";
@@ -18,7 +18,7 @@ const TableRow = ({ blink, refValue, value, columns }) => {
     if (currentPrice === value.floor) {
       return "blue";
     } else {
-      return "green";
+      return "#0f0";
     }
   };
 

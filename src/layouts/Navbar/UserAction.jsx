@@ -45,7 +45,7 @@ const UserAction = () => {
         </Link>
       )}
       <Menu>
-        <MenuButton sx={{ px: 5 }}>
+        <MenuButton sx={{ px: 5 }} _focus={{ border: "none" }}>
           <FaUserAlt color="#fffff" />
         </MenuButton>
         <MenuList

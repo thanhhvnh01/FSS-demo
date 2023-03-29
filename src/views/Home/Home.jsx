@@ -153,6 +153,7 @@ const Home = () => {
       <TableHeader
         action={() => {
           setModalOpen(true);
+          setModalTye("table-setting");
         }}
         setSelectedMarket={setSelectedMarket}
         selectedMarket={selectedMarket}
@@ -172,8 +173,15 @@ const Home = () => {
           columns={columns}
         />
       )}
-      {modalOpen && modalType === "order" && <OrderModal isOpen={modalOpen} />}
-      <Footer />
+      {modalOpen && modalType === "order" && (
+        <OrderModal isOpen={modalOpen} onClose={handleCloseModal} />
+      )}
+      <Footer
+        action={() => {
+          setModalOpen(true);
+          setModalTye("order");
+        }}
+      />
     </div>
   );
 };

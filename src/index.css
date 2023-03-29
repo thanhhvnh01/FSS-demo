@@ -72,7 +72,14 @@ button:focus-visible {
   bottom: 0;
   background-color: black;
   width: 100%;
-  padding: 4px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.order-btn{
+  background-color: #197fc1;
+  padding: 5px 20px;
+  cursor: pointer;
 }
 
 .auth-bg{
@@ -101,6 +108,7 @@ td{
   font-weight:normal;
   font-size: small  ;
   padding: 4px 0px !important;
+  background-color: #000000;
 }
 
 .cell-text{
@@ -115,6 +123,7 @@ th{
   font-size: small  ;
   padding: 8px 0px !important;
   position: sticky !important;
+  /* background-color: #222222; */
 }
 
 .flash-cell-red {
@@ -285,8 +294,50 @@ th{
 
 /* .dropdown-item:hover .dropdown-content {display: block;} */
 .dropdown-content:hover {display: block;}
-/* .table-fixed-head{
-  overflow: auto; height: 100vh; 
+
+.toggle-wrapper {
+  display: flex;
+  flex-direction: row;
+  height: 50px;
+  cursor: pointer;
+  font-weight: bold;
 }
 
-.table-fixed-head thead th {position: sticky; top: 0; z-index: 1;} */
+.buy {
+  background-color: #c3c9cf;
+  width: 50%;
+  border-radius: 5px 0 0 5px;
+  border: 1px solid #767676;
+  
+}
+
+.buy-active{
+  background-color: #236abb;
+  width: 50%;
+  color: white;
+  border-radius: 5px 0 0 5px;
+  border: 1px solid #767676;
+}
+
+.sell {
+  background-color: #c3c9cf;
+  width: 50%;
+  border-radius: 0 5px 5px 0;
+  border: 1px solid #767676;
+  float: right;
+}
+
+.sell-active{
+  background-color: #dc2937;
+  width: 50%;
+  border-radius: 0 5px 5px 0;
+  color: white;
+  border: 1px solid #767676;
+  float: right;
+}
+
+.row-between{
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid grey;
+}
