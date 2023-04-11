@@ -11,12 +11,14 @@ import {
   InputGroup,
   InputLeftAddon,
   InputLeftElement,
+  Select,
   Stack,
   Text,
 } from "@chakra-ui/react";
 import React, { useState } from "react";
+import ReactSelect from "react-select";
 
-const OrderModal = ({ isOpen, onClose }) => {
+const OrderModal = ({ isOpen, onClose, options }) => {
   const [mode, setMode] = useState("");
 
   const handleSelectMode = (mode) => {
@@ -57,7 +59,12 @@ const OrderModal = ({ isOpen, onClose }) => {
                   BÁN
                 </div>
               </div>
-              <Input placeholder="Chọn mã CK"></Input>
+              {/* <Input placeholder="Chọn mã CK"></Input> */}
+              <ReactSelect
+                placeholder="Chọn mã CK"
+                options={options}
+                isClearable
+              />
             </Stack>
             <div>
               <HStack mt={2}>
@@ -94,7 +101,7 @@ const OrderModal = ({ isOpen, onClose }) => {
                   <Text>0</Text>
                 </HStack>
                 <HStack className="row-between">
-                  <Text>Tỉ lê vay:</Text>
+                  <Text>Tỉ lệ vay:</Text>
                   <Text>0</Text>
                 </HStack>
                 <Button>Mua</Button>

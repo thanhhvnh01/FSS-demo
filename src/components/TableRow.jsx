@@ -13,7 +13,7 @@ const TableRow = ({ blink, refValue, value, columns }) => {
       return "yellow";
     }
     if (currentPrice === value.ceiling) {
-      return "purple";
+      return "#ff25ff";
     }
     if (currentPrice === value.floor) {
       return "blue";
@@ -49,7 +49,7 @@ const TableRow = ({ blink, refValue, value, columns }) => {
   return (
     <>
       {!!value && (
-        <Tr>
+        <Tr className="table-row">
           {columns.includes("symbol") && (
             <Td className={cellColor(refValue?.closePrice, value?.closePrice)}>
               <Text
@@ -69,7 +69,7 @@ const TableRow = ({ blink, refValue, value, columns }) => {
           )}
           {columns.includes("ceiling") && (
             <Td className={cellColor()} sx={{ backgroundColor: "#404040" }}>
-              <Text className="cell-text" color="purple">
+              <Text className="cell-text" color="#ff25ff">
                 {roundValue(value.ceiling)}
               </Text>
             </Td>
@@ -182,7 +182,7 @@ const TableRow = ({ blink, refValue, value, columns }) => {
               {roundValue(value.bidVol3)}
             </Text>
           </Td>
-          <Td className={cellColor()}>
+          <Td className={cellColor()} colSpan={2}>
             <Text className="cell-text" color={textColor()}>
               {roundValue(value.TOTAL_BID_QTTY)}
             </Text>

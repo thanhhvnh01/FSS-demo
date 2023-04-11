@@ -38,6 +38,7 @@ const Home = () => {
   const [columns_HNX30, setColumns_HNX30] = useState(defaultColumns);
   const [columns_VN30, setColumns_VN30] = useState(defaultColumns);
   const [selectedMarket, setSelectedMarket] = useState("hose");
+  const [selectOptions, setSelectOptions] = useState([]);
 
   useEffect(() => {
     let response = [];
@@ -52,6 +53,11 @@ const Home = () => {
     }
     setInitData(response);
     setData(response);
+    setSelectOptions(
+      response.map((i) => {
+        return { value: i.symbol, label: i.symbol };
+      })
+    );
   }, [selectedMarket]);
 
   //* get stock id array
@@ -174,7 +180,11 @@ const Home = () => {
         />
       )}
       {modalOpen && modalType === "order" && (
-        <OrderModal isOpen={modalOpen} onClose={handleCloseModal} />
+        <OrderModal
+          isOpen={modalOpen}
+          onClose={handleCloseModal}
+          options={selectOptions}
+        />
       )}
       <Footer
         action={() => {

@@ -1,7 +1,6 @@
 import React from "react";
 import { Table, TableContainer, Tbody, Th, Thead, Tr } from "@chakra-ui/react";
 import TableRow from "./TableRow";
-import TableHeader from "./TableToolbar";
 import { FormattedMessage } from "react-intl";
 
 const table_Head1 = [
@@ -12,7 +11,7 @@ const table_Head1 = [
   { label: "buy", rowSpan: 1, colSpan: 6 },
   { label: "close", rowSpan: 1, colSpan: 3 },
   { label: "sale", rowSpan: 1, colSpan: 6 },
-  { label: "totalVol", rowSpan: 2 },
+  { label: "totalVol", rowSpan: 2, colSpan: 2 },
   { label: "price", rowSpan: 1, colSpan: 3 },
   { label: "surplus", rowSpan: 1, colSpan: 2 },
   { label: "international", rowSpan: 1, colSpan: 2 },
